@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrade Detailing — Catálogo de Servicios</title>
+<style>
+  :root{
+    --black:#0a0f18;
+    --card:#131a24;
+    --card-border:#232c3a;
+    --red:#D32F2F;
+    --red-dark:#8f1f1f;
+    --gold:#C9A84C;
+    --white:#ffffff;
+    --muted:#9aa5b5;
+    --green:#3fae5c;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+  }
+  .page{
+    width:100%;
+    max-width:480px;
+    background:var(--black);
+    padding-bottom:32px;
+  }
+
+  /* HEADER */
+  header{
+    background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 60%, var(--black) 130%);
+    padding:36px 24px 30px;
+    text-align:left;
+  }
+  header .brand{
+    font-size:26px;
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  header .zone{
+    margin-top:8px;
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:rgba(255,255,255,0.85);
+    text-transform:uppercase;
+  }
+  header h1{
+    margin-top:22px;
+    font-size:30px;
+    line-height:1.15;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  header p.sub{
+    margin-top:10px;
+    font-size:14px;
+    color:rgba(255,255,255,0.9);
+  }
+
+  /* SECTIONS */
+  section{ padding:28px 20px 4px; }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:16px;
+    color:var(--white);
+  }
+  .section-title .ic{ font-size:18px; }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:14px;
+  }
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .card-top h3{ font-size:16px; font-weight:700; }
+  .price{ font-size:18px; font-weight:800; color:var(--red); white-space:nowrap; }
+  .duration{
+    margin-top:4px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .desc{
+    margin-top:10px;
+    font-size:13.5px;
+    line-height:1.5;
+    color:#c7cdd7;
+  }
+  .vehicle-price{
+    margin-top:6px;
+    font-size:12px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .desc-list{
+    margin-top:10px;
+    padding-left:0;
+    list-style:none;
+  }
+  .desc-list li{
+    font-size:13px;
+    line-height:1.5;
+    color:#c7cdd7;
+    padding-left:16px;
+    position:relative;
+    margin-bottom:4px;
+  }
+  .desc-list li:before{
+    content:"•";
+    color:var(--gold);
+    position:absolute;
+    left:0;
+  }
+  .badge{
+    display:inline-block;
+    margin-top:12px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.4px;
+    padding:4px 10px;
+    border-radius:6px;
+    text-transform:uppercase;
+  }
+  .badge.sin{ background:rgba(63,174,92,0.12); color:var(--green); border:1px solid rgba(63,174,92,0.4); }
+  .badge.anticipo{ background:rgba(211,47,47,0.12); color:#ff6b6b; border:1px solid rgba(211,47,47,0.4); }
+
+  .note{
+    background:rgba(201,168,76,0.08);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:12.5px;
+    color:#dcd2b8;
+    margin:6px 0 18px;
+  }
+  .note b{ color:var(--gold); }
+
+  /* PICKUP BOX */
+  .pickup-box{
+    margin:28px 20px;
+    background:linear-gradient(160deg, rgba(211,47,47,0.15), rgba(10,15,24,0.4));
+    border:1px solid var(--red);
+    border-radius:14px;
+    padding:20px;
+  }
+  .pickup-box .ptitle{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:16px;
+    font-weight:700;
+  }
+  .pickup-box .pzone{
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin:4px 0 12px;
+  }
+  .pickup-box p{ font-size:13.5px; line-height:1.55; color:#d8dce3; }
+  .pickup-box .how{
+    margin-top:14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--green);
+  }
+  .pickup-box ol{
+    margin:8px 0 0 18px;
+    font-size:13px;
+    color:#c7cdd7;
+    line-height:1.9;
+  }
+  .pickup-box .cost{
+    margin-top:14px;
+    background:rgba(255,255,255,0.05);
+    border-radius:8px;
+    padding:10px 12px;
+    font-size:12.5px;
+    color:#c7cdd7;
+    line-height:1.5;
+  }
+  .pickup-box .cost b{ color:var(--white); }
+
+  /* INFO IMPORTANTE */
+  .info-block{
+    margin-bottom:20px;
+  }
+  .info-block h4{
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:8px;
+    color:var(--gold);
+  }
+  .info-block .line{
+    font-size:13px;
+    color:#c7cdd7;
+    margin-bottom:4px;
+    line-height:1.5;
+  }
+
+  /* CTAs */
+  .cta{
+    display:block;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    font-size:14.5px;
+    font-weight:700;
+    margin:14px 20px 0;
+    text-decoration:none;
+  }
+  .cta.primary{ background:var(--red); color:var(--white); }
+  .cta.secondary{ background:transparent; border:1px solid var(--card-border); color:var(--white); }
+
+  footer{
+    text-align:center;
+    margin-top:28px;
+    padding:0 20px;
+  }
+  footer .fname{ font-weight:700; font-size:13px; }
+  footer .line{ font-size:12px; color:var(--muted); margin-top:4px; }
+
+  hr.div{ border:none; border-top:1px solid var(--card-border); margin:8px 20px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">Andrade Detailing</div>
+    <div class="zone">Zona Norte · San Miguel</div>
+    <h1>Catálogo de Servicios</h1>
+    <p class="sub">Cuidado automotriz profesional. Con cita o sin cita.</p>
+  </header>
+
+  <section>
+    <div class="section-title">Lavados Rápidos</div>
+
+    <div class="note"><b>Nota:</b> Precios aplican para Sedán, Pickup y Camioneta. Vehículos más grandes consultar.</div>
+
+    <div class="card">
+      <div class="card-top"><h3>Lavado Express</h3><span class="price">$10</span></div>
+      <div class="duration">⏱ 30 minutos</div>
+      <ul class="desc-list">
+        <li>Lavado exterior</li>
+        <li>Secado con aire comprimido</li>
+        <li>Aspirado</li>
+        <li>Limpieza de plásticos y tableros</li>
+        <li>Limpieza de vidrios por dentro y fuera</li>
+        <li>Siliconado de llantas</li>
+        <li>Aromatizado</li>
+      </ul>
+      <span class="badge sin">Sin anticipo</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Detallados Profesionales</div>
+
+    <div class="card">
+      <div class="card-top"><h3>Detallado Bronce</h3><span class="price">$20</span></div>
+      <div class="duration">⏱ 1 hora</div>
+      <ul class="desc-list">
+        <li>Lavado exterior</li>
+        <li>Detallado de rines (cara frontal)</li>
+        <li>Siliconado de llantas</li>
+        <li>Aspirado completo</li>
+        <li>Limpieza de tablero y consola</li>
+        <li>Limpieza de puertas</li>
+        <li>Limpieza de vidrios interior y exterior</li>
+        <li>Encerado con cera (Hard Wax Flamingo o Cleaner Wax Meguiar's)</li>
+        <li>Protección de pintura hasta 1 mes</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Detallado Plata</h3><span class="price">$35</span></div>
+      <div class="duration">⏱ 2 horas</div>
+      <ul class="desc-list">
+        <li>Lavado exterior</li>
+        <li>Detallado de rines</li>
+        <li>Hybrid Ceramic Liquid Wax Meguiar's</li>
+        <li>Protección de pintura hasta 3 meses</li>
+        <li>Abrillantado de llantas</li>
+        <li>Tornador en interior</li>
+        <li>Aspirado</li>
+        <li>Limpieza de tablero y consola</li>
+        <li>Limpieza de puertas y molduras</li>
+        <li>Acondicionador de plásticos interiores</li>
+        <li>Limpieza de vidrios interior y exterior</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Detallado Oro</h3><span class="price">$55</span></div>
+      <div class="duration">⏱ 3 horas</div>
+      <ul class="desc-list">
+        <li>Lavado exterior completo</li>
+        <li>Detallado de rines y tolvas</li>
+        <li>Descontaminación química en pintura</li>
+        <li>Sellador CMX Mother's (protección cerámica)</li>
+        <li>Protección de pintura hasta 6 meses</li>
+        <li>Abrillantado de llantas</li>
+        <li>Tornador en interior</li>
+        <li>Aspirado completo</li>
+        <li>Detallado de tablero, consola y puertas</li>
+        <li>Abrillantado de plásticos exteriores</li>
+        <li>Limpieza de vidrios interior y exterior</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Servicios Premium</div>
+
+    <div class="card">
+      <div class="card-top"><h3>Limpieza de Tapicería</h3><span class="price">$85–$95</span></div>
+      <div class="duration">⏱ 8 horas</div>
+      <div class="vehicle-price">Sedán y Pickup doble cabina: $85 · Camioneta: $95</div>
+      <div class="desc">Limpieza profunda con vapor y extracción de asientos, alfombras, techo, puertas, cinturones + lavado exterior.</div>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Pulido de Pintura</h3><span class="price">$100–$125</span></div>
+      <div class="duration">⏱ 8 horas</div>
+      <div class="vehicle-price">Sedán: $100 · Pickup doble cabina y Camioneta: $125</div>
+      <ul class="desc-list">
+        <li>Descontaminación química</li>
+        <li>Descontaminación mecánica</li>
+        <li>Pulido y abrillantado</li>
+        <li>Sellado con CMX de Mother's</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Desmanchado de Vidrios</h3><span class="price">$40–$60</span></div>
+      <div class="vehicle-price">Sedán y Pickup doble cabina: $40 · Camioneta: $60</div>
+      <ul class="desc-list">
+        <li>Eliminación de gota seca</li>
+        <li>Eliminación de sarro</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Servicios Adicionales</div>
+
+    <div class="card">
+      <div class="card-top"><h3>Lavado de Motor</h3><span class="price">$20</span></div>
+      <div class="duration">⏱ 1 hora</div>
+      <ul class="desc-list">
+        <li>Desengrasante</li>
+        <li>Tallado con espuma</li>
+        <li>Lavado a baja presión</li>
+        <li>Secado con aire comprimido</li>
+        <li>Acondicionador de plásticos</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Lavado de Chasis</h3><span class="price">$20</span></div>
+      <div class="duration">⏱ 1 hora</div>
+      <ul class="desc-list">
+        <li>Desengrasante</li>
+        <li>Espuma activa</li>
+        <li>Lavado con agua a presión</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><h3>Restauración de Faros</h3><span class="price">$35</span></div>
+      <div class="duration">⏱ 1 hora</div>
+      <ul class="desc-list">
+        <li>Descontaminación química</li>
+        <li>Pulido y abrillantado</li>
+        <li>Sellado con CMX de Mother's — protección 6 meses</li>
+      </ul>
+      <span class="badge anticipo">Anticipo 50%</span>
+    </div>
+  </section>
+
+  <div class="pickup-box">
+    <div class="ptitle">Recogida y Entrega</div>
+    <div class="pzone">Zona céntrica Ciudad Barrios</div>
+    <p>¿No podés traer tu vehículo? No hay problema. Nosotros lo recogemos en la zona céntrica de Ciudad Barrios, realizamos el servicio y te lo entregamos de vuelta.</p>
+    <div class="how">Cómo funciona:</div>
+    <ol>
+      <li>Agendás tu cita en nuestra web y coordinás por WhatsApp</li>
+      <li>Coordinamos horario de recogida</li>
+      <li>Recogemos tu vehículo en tu ubicación</li>
+      <li>Realizamos el servicio</li>
+      <li>Te lo entregamos de vuelta</li>
+    </ol>
+    <div class="cost"><b>Costo adicional:</b> El servicio de recogida y entrega tiene un costo adicional que varía según la distancia. Consultanos por WhatsApp para cotizarte.</div>
+  </div>
+
+  <section>
+    <div class="section-title">Información Importante</div>
+
+    <div class="info-block">
+      <h4>Sistema Híbrido</h4>
+      <div class="line">Con Cita: Pasás directo, sin esperas</div>
+      <div class="line">Sin Cita: Llegás cuando quieras (puede haber espera)</div>
+    </div>
+
+    <div class="info-block">
+      <h4>Política de Anticipos</h4>
+      <div class="line">• Lavado Express: sin anticipo</div>
+      <div class="line">• Todos los demás servicios: 50% de anticipo</div>
+      <div class="line">• Cancelaciones: 12 horas de anticipación vía WhatsApp</div>
+    </div>
+
+    <div class="info-block">
+      <h4>Programa de Puntos</h4>
+      <div class="line">Por cada $1 gastado = 10 puntos</div>
+      <div class="line">Canjeá tus puntos por servicios y premios en la app</div>
+    </div>
+
+    <div class="info-block">
+      <h4>Horario de Atención</h4>
+      <div class="line">Lunes a Sábado: 8:00 AM – 5:00 PM</div>
+      <div class="line">Domingo: Cerrado</div>
+    </div>
+  </section>
+
+  <a class="cta primary" href="https://wa.me/50369365876">Agenda tu Cita por WhatsApp</a>
+  <a class="cta secondary" href="https://andradedetailingstudio.com">Visita Nuestra Web</a>
+
+  <hr class="div" style="margin-top:28px;">
+
+  <footer>
+    <div class="fname">Andrade Detailing</div>
+    <div class="line">Cerro de Arena, Ciudad Barrios</div>
+    <div class="line">Zona Norte, San Miguel</div>
+    <div class="line">WhatsApp: +503 6936-5876</div>
+    <div class="line">Web: andradedetailingstudio.com</div>
+  </footer>
+
+</div>
+</body>
+</html>
