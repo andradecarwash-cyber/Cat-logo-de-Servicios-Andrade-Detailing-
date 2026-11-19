@@ -27,6 +27,7 @@
   .name{font-size:18px;font-weight:700}
   .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--red);color:#fff;border-radius:999px;padding:2px 9px;margin-bottom:6px}
   .price{font-size:24px;font-weight:800;color:var(--red);white-space:nowrap;text-align:right}
+  .sub{font-size:14px;font-weight:600;color:#d5dbe4;margin-top:1px}
   .time{color:var(--muted);font-size:13px;margin-top:2px}
   .tiers{margin-top:10px;display:grid;gap:6px}
   .tier{display:flex;justify-content:space-between;font-size:14px;border-top:1px dashed var(--line);padding-top:6px}
@@ -72,9 +73,26 @@
   <h2>Servicios Premium</h2>
 
   <div class="card featured">
-    <span class="tag">Nuevo</span>
+    <span class="tag">Próximamente</span>
     <div class="top">
-      <div><div class="name">Tratamiento Cerámico 3 años</div><div class="time">CarPro DQuartz GO · ⏱ 4 días aprox.</div></div>
+      <div><div class="name">Tratamiento Cerámico Premium</div><div class="sub">5 años de protección</div><div class="time">⏱ 4 días aprox.</div></div>
+      <div class="price">desde $440</div>
+    </div>
+    <div class="tiers">
+      <div class="tier"><span>Sedán</span><b>$440</b></div>
+      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$570</b></div>
+    </div>
+    <ul>
+      <li>Full detallado exterior</li>
+      <li>Detallado Basic interior</li>
+      <li>Corrección completa de pintura</li>
+      <li>Aplicación de cerámico con protección de hasta 5 años</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Tratamiento Cerámico Deluxe</div><div class="sub">3 años de protección</div><div class="time">⏱ 4 días aprox.</div></div>
       <div class="price">desde $350</div>
     </div>
     <div class="tiers">
@@ -83,31 +101,61 @@
     </div>
     <ul>
       <li>Full detallado exterior</li>
-      <li>Detallado Bronce interior</li>
-      <li>Corrección de pintura</li>
+      <li>Detallado Basic interior</li>
+      <li>Corrección completa de pintura</li>
       <li>Aplicación de cerámico con protección de hasta 3 años</li>
     </ul>
   </div>
 
   <div class="card">
     <div class="top">
-      <div><div class="name">Pulido de Pintura</div><div class="time">⏱ 8 horas aprox.</div></div>
-      <div class="price">desde $125</div>
+      <div><div class="name">Tratamiento Cerámico Basic</div><div class="sub">1 año de protección</div><div class="time">Corrección + cerámico · ⏱ 2 días aprox.</div></div>
+      <div class="price">desde $220</div>
     </div>
     <div class="tiers">
-      <div class="tier"><span>Sedán</span><b>$125</b></div>
-      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$150</b></div>
+      <div class="tier"><span>Sedán</span><b>$220</b></div>
+      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$280</b></div>
     </div>
     <ul>
-      <li>Descontaminación química</li>
-      <li>Descontaminación mecánica</li>
-      <li>Pulido y abrillantado</li>
+      <li>Descontaminación química y mecánica</li>
+      <li>Corrección completa de pintura</li>
+      <li>Aplicación de cerámico</li>
+      <li>Protección de pintura hasta 1 año</li>
     </ul>
-    <div class="addon">
-      <div class="addon-title">Protección adicional</div>
-      <div class="tier" style="border-top:0;padding-top:0"><span>Sellador 3 meses</span><b>+$25</b></div>
-      <div class="tier"><span>Sellador 6 meses</span><b>+$50</b></div>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Pulido Deluxe</div><div class="time">Pulido y abrillantado + sellado CMX · ⏱ 1 a 2 días aprox.</div></div>
+      <div class="price">desde $150</div>
     </div>
+    <div class="tiers">
+      <div class="tier"><span>Sedán</span><b>$150</b></div>
+      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$190</b></div>
+    </div>
+    <ul>
+      <li>Descontaminación química y mecánica</li>
+      <li>Pulido y abrillantado</li>
+      <li>Sellador cerámico CMX Mother's</li>
+      <li>Protección de pintura hasta 6 meses</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Pulido Basic</div><div class="time">Realce one step · ⏱ 1 día aprox.</div></div>
+      <div class="price">desde $90</div>
+    </div>
+    <div class="tiers">
+      <div class="tier"><span>Sedán</span><b>$90</b></div>
+      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$120</b></div>
+    </div>
+    <ul>
+      <li>Pulido de un solo paso con producto 3 en 1</li>
+      <li>Limpia, abrillanta y protege en una sola aplicación</li>
+      <li>Devuelve el brillo y disimula marcas leves</li>
+    </ul>
+    <p class="desc" style="color:var(--muted);font-size:13px">Ideal para pintura opaca sin rayones marcados. Para corregir rayones, elegí Pulido Deluxe o un Tratamiento Cerámico.</p>
   </div>
 
   <div class="card">
@@ -136,7 +184,7 @@
       <li>Eliminación de sarro</li>
     </ul>
     <div class="addon">
-      <div class="addon-title">Protección adicional · Cerámico de vidrios DQuartz G Force · 2 años</div>
+      <div class="addon-title">Protección adicional · Cerámico de vidrios · 2 años</div>
       <div class="tier" style="border-top:0;padding-top:0"><span>Sedán y Pickup doble cabina</span><b>+$40</b></div>
       <div class="tier"><span>Camioneta</span><b>+$50</b></div>
     </div>
@@ -147,7 +195,7 @@
 
   <div class="card">
     <div class="top">
-      <div><div class="name">Detallado Oro</div><div class="time">⏱ 3 horas aprox.</div></div>
+      <div><div class="name">Detallado Premium</div><div class="sub">Lavado</div><div class="time">⏱ 3 horas aprox.</div></div>
       <div class="price">$55</div>
     </div>
     <ul>
@@ -168,7 +216,7 @@
   <div class="card featured">
     <span class="tag">Recomendado</span>
     <div class="top">
-      <div><div class="name">Detallado Plata</div><div class="time">⏱ 2 horas aprox.</div></div>
+      <div><div class="name">Detallado Deluxe</div><div class="sub">Lavado</div><div class="time">⏱ 2 horas aprox.</div></div>
       <div class="price">$35</div>
     </div>
     <ul>
@@ -188,7 +236,7 @@
 
   <div class="card">
     <div class="top">
-      <div><div class="name">Detallado Bronce</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Detallado Basic</div><div class="sub">Lavado</div><div class="time">⏱ 1 hora aprox.</div></div>
       <div class="price">$20</div>
     </div>
     <ul>
