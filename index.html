@@ -6,8 +6,8 @@
 <title>Andrade Detailing — Catálogo de Servicios</title>
 <style>
   :root{
-    --bg:#0a0f18; --card:#121a26; --line:#223044; --red:#D32F2F; --red-soft:rgba(211,47,47,.12);
-    --text:#f2f4f7; --muted:#9aa6b8; --gold:#c9a24a;
+    --bg:#f5f5f3; --card:#ffffff; --line:#e3e3df; --red:#D32F2F; --red-soft:rgba(211,47,47,.08); --soft:#fafaf8; --body:#3a3d42;
+    --text:#16181c; --muted:#6e727a; --gold:#9a7418;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;padding:0 0 40px}
@@ -19,34 +19,47 @@
   h1{font-size:22px;margin-top:22px}
   .lead{color:var(--muted);font-size:15px;margin-top:6px}
   .note{background:var(--red-soft);border:1px solid rgba(211,47,47,.35);border-radius:10px;padding:10px 14px;font-size:13px;margin:22px 0 0}
+  .hint{color:var(--muted);font-size:13px;text-align:center;margin:22px 0 12px}
+  .cat{box-shadow:0 1px 3px rgba(0,0,0,.05);background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .cat[open]{border-color:var(--red)}
+  .cat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
+  .cat summary::-webkit-details-marker{display:none}
+  .cat-ico{font-size:22px;width:40px;height:40px;border-radius:10px;background:var(--red-soft);display:grid;place-items:center;flex:none}
+  .cat-t{flex:1;font-size:17px;font-weight:700}
+  .cat-t small{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:2px}
+  .cat-note{font-size:13px;font-weight:500;color:var(--muted)}
+  .chev{color:var(--red);font-size:22px;transition:transform .2s}
+  .cat[open] .chev{transform:rotate(180deg)}
+  .cat-body{padding:4px 12px 2px}
+  .cat-body .card{background:var(--soft)}
   h2{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
   h2::after{content:"";flex:1;height:1px;background:var(--line)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-bottom:14px}
+  .card{box-shadow:0 1px 2px rgba(0,0,0,.04);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-bottom:14px}
   .card.featured{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
   .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
   .name{font-size:18px;font-weight:700}
   .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--red);color:#fff;border-radius:999px;padding:2px 9px;margin-bottom:6px}
   .price{font-size:24px;font-weight:800;color:var(--red);white-space:nowrap;text-align:right}
-  .sub{font-size:14px;font-weight:600;color:#d5dbe4;margin-top:1px}
+  .sub{font-size:14px;font-weight:600;color:var(--body);margin-top:1px}
   .time{color:var(--muted);font-size:13px;margin-top:2px}
   .tiers{margin-top:10px;display:grid;gap:6px}
   .tier{display:flex;justify-content:space-between;font-size:14px;border-top:1px dashed var(--line);padding-top:6px}
   .tier b{color:var(--text)}
   ul{list-style:none;margin-top:12px;display:grid;gap:5px}
-  li{font-size:14px;color:#d5dbe4;padding-left:20px;position:relative}
+  li{font-size:14px;color:var(--body);padding-left:20px;position:relative}
   li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:700}
-  .desc{font-size:14px;color:#d5dbe4;margin-top:10px}
-  .addon{margin-top:12px;background:#0e1520;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .desc{font-size:14px;color:var(--body);margin-top:10px}
+  .addon{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
   .addon-title{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
   .foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12px;color:var(--muted)}
   .pill{border:1px solid var(--line);border-radius:999px;padding:2px 10px}
   .steps{counter-reset:s;display:grid;gap:6px;margin-top:10px}
-  .steps div{counter-increment:s;font-size:14px;color:#d5dbe4;padding-left:28px;position:relative}
+  .steps div{counter-increment:s;font-size:14px;color:var(--body);padding-left:28px;position:relative}
   .steps div::before{content:counter(s);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
   .info{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .info .card{margin:0}
   .info h3{font-size:14px;margin-bottom:6px}
-  .info p{font-size:13px;color:#d5dbe4}
+  .info p{font-size:13px;color:var(--body)}
   .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
   .cta a{flex:1;min-width:200px;text-align:center;text-decoration:none;font-weight:700;padding:14px;border-radius:12px}
   .wa{background:var(--red);color:#fff}
@@ -62,20 +75,22 @@
   <div class="brand">Andrade <span>Detailing</span></div>
   <div class="zone">Zona Norte · San Miguel</div>
   <h1>Catálogo de Servicios</h1>
-  <p class="lead">Cuidado automotriz profesional. Con cita o sin cita.</p>
+  <p class="lead">Cuidado automotriz profesional.</p>
 </header>
 
 <div class="wrap">
 
   <div class="note"><b>Nota:</b> Ordenamos los servicios del más completo al más básico, para que elijás lo que tu vehículo necesita. Los precios aplican para Sedán, Pickup y Camioneta. Para vehículos más grandes, consultanos. Los tiempos son aproximados y varían según el estado del vehículo.</div>
 
-  <!-- PREMIUM -->
-  <h2>Servicios Premium</h2>
+  <p class="hint">Tocá una categoría para ver sus servicios y precios.</p>
 
+  <details class="cat">
+    <summary><span class="cat-t">Tratamientos Cerámicos<small>3 servicios · desde $220</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card featured">
     <span class="tag">Próximamente</span>
     <div class="top">
-      <div><div class="name">Tratamiento Cerámico Premium</div><div class="sub">5 años de protección</div><div class="time">⏱ 4 días aprox.</div></div>
+      <div><div class="name">Tratamiento Cerámico Premium</div><div class="sub">5 años de protección</div><div class="time">4 días aprox.</div></div>
       <div class="price">desde $440</div>
     </div>
     <div class="tiers">
@@ -89,10 +104,9 @@
       <li>Aplicación de cerámico con protección de hasta 5 años</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Tratamiento Cerámico Deluxe</div><div class="sub">3 años de protección</div><div class="time">⏱ 4 días aprox.</div></div>
+      <div><div class="name">Tratamiento Cerámico Deluxe</div><div class="sub">3 años de protección</div><div class="time">4 días aprox.</div></div>
       <div class="price">desde $350</div>
     </div>
     <div class="tiers">
@@ -106,10 +120,9 @@
       <li>Aplicación de cerámico con protección de hasta 3 años</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Tratamiento Cerámico Basic</div><div class="sub">1 año de protección</div><div class="time">Corrección + cerámico · ⏱ 2 días aprox.</div></div>
+      <div><div class="name">Tratamiento Cerámico Basic</div><div class="sub">1 año de protección</div><div class="time">Corrección + cerámico · 2 días aprox.</div></div>
       <div class="price">desde $220</div>
     </div>
     <div class="tiers">
@@ -123,10 +136,15 @@
       <li>Protección de pintura hasta 1 año</li>
     </ul>
   </div>
+    </div>
+  </details>
 
+  <details class="cat">
+    <summary><span class="cat-t">Pulidos<small>2 servicios · desde $100</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card">
     <div class="top">
-      <div><div class="name">Pulido Deluxe</div><div class="time">Pulido y abrillantado + sellado CMX · ⏱ 1 a 2 días aprox.</div></div>
+      <div><div class="name">Pulido Deluxe</div><div class="time">Pulido y abrillantado + sellado CMX · 1 a 2 días aprox.</div></div>
       <div class="price">desde $150</div>
     </div>
     <div class="tiers">
@@ -140,10 +158,9 @@
       <li>Protección de pintura hasta 6 meses</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Pulido Basic</div><div class="time">Realce one step · ⏱ 1 día aprox.</div></div>
+      <div><div class="name">Pulido Basic</div><div class="time">Realce one step · 1 día aprox.</div></div>
       <div class="price">desde $100</div>
     </div>
     <div class="tiers">
@@ -157,10 +174,15 @@
     </ul>
     <p class="desc" style="color:var(--muted);font-size:13px">Ideal para pintura opaca sin rayones marcados. Para corregir rayones, elegí Pulido Deluxe o un Tratamiento Cerámico.</p>
   </div>
+    </div>
+  </details>
 
+  <details class="cat">
+    <summary><span class="cat-t">Interior<small>1 servicio · desde $100</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card">
     <div class="top">
-      <div><div class="name">Limpieza de Tapicería</div><div class="time">⏱ 8 horas aprox.</div></div>
+      <div><div class="name">Limpieza de Tapicería</div><div class="time">8 horas aprox.</div></div>
       <div class="price">desde $100</div>
     </div>
     <div class="tiers">
@@ -169,33 +191,15 @@
     </div>
     <p class="desc">Limpieza profunda con vapor y extracción de asientos, alfombras, techo, puertas y cinturones.</p>
   </div>
+    </div>
+  </details>
 
+  <details class="cat">
+    <summary><span class="cat-t">Detallados <span class="cat-note">(lavados)</span><small>3 servicios · desde $20</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card">
     <div class="top">
-      <div><div class="name">Desmanchado de Vidrios</div><div class="time">⏱ 4 horas aprox.</div></div>
-      <div class="price">desde $75</div>
-    </div>
-    <div class="tiers">
-      <div class="tier"><span>Sedán y Pickup doble cabina</span><b>$75</b></div>
-      <div class="tier"><span>Camioneta</span><b>$100</b></div>
-    </div>
-    <ul>
-      <li>Eliminación de gota seca</li>
-      <li>Eliminación de sarro</li>
-    </ul>
-    <div class="addon">
-      <div class="addon-title">Protección adicional · Cerámico de vidrios · 2 años</div>
-      <div class="tier" style="border-top:0;padding-top:0"><span>Sedán y Pickup doble cabina</span><b>+$50</b></div>
-      <div class="tier"><span>Camioneta</span><b>+$75</b></div>
-    </div>
-  </div>
-
-  <!-- DETALLADOS -->
-  <h2>Detallados Profesionales</h2>
-
-  <div class="card">
-    <div class="top">
-      <div><div class="name">Detallado Premium</div><div class="sub">Lavado</div><div class="time">⏱ 3 horas aprox.</div></div>
+      <div><div class="name">Detallado Premium</div><div class="sub">Lavado</div><div class="time">3 horas aprox.</div></div>
       <div class="price">$55</div>
     </div>
     <ul>
@@ -212,11 +216,10 @@
       <li>Limpieza de vidrios interior y exterior</li>
     </ul>
   </div>
-
   <div class="card featured">
     <span class="tag">Recomendado</span>
     <div class="top">
-      <div><div class="name">Detallado Deluxe</div><div class="sub">Lavado</div><div class="time">⏱ 2 horas aprox.</div></div>
+      <div><div class="name">Detallado Deluxe</div><div class="sub">Lavado</div><div class="time">2 horas aprox.</div></div>
       <div class="price">$35</div>
     </div>
     <ul>
@@ -233,10 +236,9 @@
       <li>Limpieza de vidrios interior y exterior</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Detallado Basic</div><div class="sub">Lavado</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Detallado Basic</div><div class="sub">Lavado</div><div class="time">1 hora aprox.</div></div>
       <div class="price">$20</div>
     </div>
     <ul>
@@ -251,14 +253,86 @@
       <li>Protección de pintura hasta 1 mes</li>
     </ul>
   </div>
+    </div>
+  </details>
 
-  <!-- MANTENIMIENTO CERAMICO -->
-  <h2>Mantenimiento Cerámico</h2>
-  <p class="desc" style="margin:-4px 0 14px;color:var(--muted)">Para vehículos con tratamiento cerámico. Usamos productos compatibles que cuidan la capa cerámica, sin ceras que la tapen.</p>
+  <details class="cat">
+    <summary><span class="cat-t">Motos<small>3 servicios · desde $20</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Moto Premium</div><div class="sub">Lavado</div></div>
+      <div class="price">$45</div>
+    </div>
+    <ul>
+      <li>Prelavado con desengrasante en motor, cadena, rines y basculante</li>
+      <li>Lavado con espuma activa y lavado manual por zonas</li>
+      <li>Descontaminación química de pintura</li>
+      <li>Limpieza profunda de cadena con cepillo y desengrasante</li>
+      <li>Detallado de rines</li>
+      <li>Desmanchado de tubo de escape</li>
+      <li>Secado con aire comprimido</li>
+      <li>Lubricación de cadena</li>
+      <li>Limpieza de tablero, manubrio, puños y mandos</li>
+      <li>Abrillantado de pintura 3 en 1 (one step)</li>
+      <li>Limpieza y acondicionado de asiento</li>
+      <li>Abrillantador en plásticos y carenados</li>
+      <li>Acondicionador de plásticos y llantas</li>
+      <li>Pulido de cromados</li>
+      <li>Abrillantado de foco, stop y vías</li>
+      <li>Abrillantador en motor</li>
+      <li>CMX Mother's Sealant (protección cerámica)</li>
+    </ul>
+  </div>
 
   <div class="card">
     <div class="top">
-      <div><div class="name">Mantenimiento Premium</div><div class="sub">Lavado</div><div class="time">⏱ 3 horas aprox.</div></div>
+      <div><div class="name">Moto Deluxe</div><div class="sub">Lavado</div></div>
+      <div class="price">$30</div>
+    </div>
+    <ul>
+      <li>Prelavado con desengrasante en motor, cadena, rines y basculante</li>
+      <li>Lavado con espuma activa y lavado manual por zonas</li>
+      <li>Limpieza profunda de cadena con cepillo y desengrasante</li>
+      <li>Detallado de rines</li>
+      <li>Secado con aire comprimido</li>
+      <li>Lubricación de cadena</li>
+      <li>Limpieza de tablero, manubrio, puños y mandos</li>
+      <li>Limpieza y acondicionado de asiento</li>
+      <li>Abrillantador en plásticos y carenados</li>
+      <li>Acondicionador de plásticos y llantas</li>
+      <li>Abrillantado de cromados</li>
+      <li>Hybrid Ceramic Liquid Wax Meguiar's</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Moto Basic</div><div class="sub">Lavado</div></div>
+      <div class="price">$20</div>
+    </div>
+    <ul>
+      <li>Prelavado con desengrasante en motor, cadena, rines y basculante</li>
+      <li>Lavado con espuma activa y lavado manual por zonas</li>
+      <li>Limpieza de rines</li>
+      <li>Secado con aire comprimido</li>
+      <li>Limpieza y acondicionado de asiento</li>
+      <li>Abrillantador en plásticos y carenados</li>
+      <li>Silicona en llantas</li>
+      <li>Hard Wax Flamingo en tanque y carenados</li>
+    </ul>
+  </div>
+
+    </div>
+  </details>
+
+  <details class="cat">
+    <summary><span class="cat-t">Mantenimiento Cerámico<small>3 servicios · desde $20</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
+  <p class="desc" style="margin:0 0 14px;color:var(--muted)">Para vehículos con tratamiento cerámico. Usamos productos compatibles que cuidan la capa cerámica, sin ceras que la tapen.</p>
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Mantenimiento Premium</div><div class="sub">Lavado</div><div class="time">3 horas aprox.</div></div>
       <div class="price">$55</div>
     </div>
     <ul>
@@ -273,10 +347,9 @@
       <li>Limpieza de vidrios interior y exterior</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Mantenimiento Deluxe</div><div class="sub">Lavado</div><div class="time">⏱ 2 horas aprox.</div></div>
+      <div><div class="name">Mantenimiento Deluxe</div><div class="sub">Lavado</div><div class="time">2 horas aprox.</div></div>
       <div class="price">$35</div>
     </div>
     <ul>
@@ -292,10 +365,9 @@
       <li>Limpieza de vidrios interior y exterior</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Mantenimiento Basic</div><div class="sub">Lavado</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Mantenimiento Basic</div><div class="sub">Lavado</div><div class="time">1 hora aprox.</div></div>
       <div class="price">$20</div>
     </div>
     <ul>
@@ -308,13 +380,34 @@
       <li>Limpieza de vidrios interior y exterior</li>
     </ul>
   </div>
+    </div>
+  </details>
 
-  <!-- ADICIONALES -->
-  <h2>Servicios Adicionales</h2>
-
+  <details class="cat">
+    <summary><span class="cat-t">Vidrios, Motor y Más<small>4 servicios · desde $20</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card">
     <div class="top">
-      <div><div class="name">Detallado de Motor</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Desmanchado de Vidrios</div><div class="time">4 horas aprox.</div></div>
+      <div class="price">desde $75</div>
+    </div>
+    <div class="tiers">
+      <div class="tier"><span>Sedán y Pickup doble cabina</span><b>$75</b></div>
+      <div class="tier"><span>Camioneta</span><b>$100</b></div>
+    </div>
+    <ul>
+      <li>Eliminación de gota seca</li>
+      <li>Eliminación de sarro</li>
+    </ul>
+    <div class="addon">
+      <div class="addon-title">Protección adicional · Cerámico de vidrios · 2 años</div>
+      <div class="tier" style="border-top:0;padding-top:0"><span>Sedán y Pickup doble cabina</span><b>+$50</b></div>
+      <div class="tier"><span>Camioneta</span><b>+$75</b></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="top">
+      <div><div class="name">Detallado de Motor</div><div class="time">1 hora aprox.</div></div>
       <div class="price">$35</div>
     </div>
     <ul>
@@ -325,10 +418,9 @@
       <li>Acondicionador de plásticos</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Lavado de Chasis</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Lavado de Chasis</div><div class="time">1 hora aprox.</div></div>
       <div class="price">$20</div>
     </div>
     <ul>
@@ -337,10 +429,9 @@
       <li>Lavado con agua a presión</li>
     </ul>
   </div>
-
   <div class="card">
     <div class="top">
-      <div><div class="name">Restauración de Faros</div><div class="time">⏱ 1 hora aprox.</div></div>
+      <div><div class="name">Restauración de Faros</div><div class="time">1 hora aprox.</div></div>
       <div class="price">$50</div>
     </div>
     <ul>
@@ -349,10 +440,12 @@
       <li>Sellado con CMX de Mother's — protección 6 meses</li>
     </ul>
   </div>
+    </div>
+  </details>
 
-  <!-- RECOGIDA -->
-  <h2>Recogida y Entrega</h2>
-
+  <details class="cat">
+    <summary><span class="cat-t">Recogida y Entrega<small>Zona céntrica de Ciudad Barrios</small></span><span class="chev">⌄</span></summary>
+    <div class="cat-body">
   <div class="card">
     <div class="name">Zona céntrica de Ciudad Barrios</div>
     <p class="desc">¿No podés traer tu vehículo? Lo recogemos en la zona céntrica de Ciudad Barrios, realizamos el servicio y te lo entregamos de vuelta.</p>
@@ -365,6 +458,9 @@
     </div>
     <p class="desc"><b>Costo adicional:</b> varía según la distancia. Consultanos por WhatsApp para cotizarte.</p>
   </div>
+
+    </div>
+  </details>
 
   <!-- INFO -->
   <h2>Información Importante</h2>
