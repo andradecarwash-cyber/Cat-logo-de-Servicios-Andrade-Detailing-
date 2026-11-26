@@ -1,0 +1,17 @@
+{
+  "name": "Andrade Detailing — Catálogo",
+  "short_name": "Andrade",
+  "description": "Catálogo de servicios de Andrade Detailing, Ciudad Barrios, San Miguel.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f5f3",
+  "theme_color": "#0a0f18",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

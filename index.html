@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0f18">
+<meta name="description" content="Catálogo de servicios de Andrade Detailing, Ciudad Barrios, San Miguel.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Andrade">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>Andrade Detailing — Catálogo de Servicios</title>
 <style>
   :root{
@@ -20,7 +29,7 @@
   .lead{color:var(--muted);font-size:15px;margin-top:6px}
   .note{background:var(--red-soft);border:1px solid rgba(211,47,47,.35);border-radius:10px;padding:10px 14px;font-size:13px;margin:22px 0 0}
   .hint{color:var(--muted);font-size:13px;text-align:center;margin:22px 0 12px}
-  .cat{box-shadow:0 1px 3px rgba(0,0,0,.05);background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .cat{scroll-margin-top:12px;box-shadow:0 1px 3px rgba(0,0,0,.05);background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
   .cat[open]{border-color:var(--red)}
   .cat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
   .cat summary::-webkit-details-marker{display:none}
@@ -85,35 +94,11 @@
 
 <div class="wrap">
 
-  <div class="note"><b>Nota:</b> Ordenamos los servicios del más completo al más básico, para que elijás lo que tu vehículo necesita. Los precios aplican para Sedán, Pickup y Camioneta. Para vehículos más grandes, consultanos. Los tiempos son aproximados y varían según el estado del vehículo.</div>
-
   <p class="hint">Tocá una categoría para ver sus servicios y precios.</p>
 
   <details class="cat">
-    <summary><span class="cat-t">Tratamientos Cerámicos<small>3 servicios</small></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <summary><span class="cat-t">Tratamientos Cerámicos<small>2 servicios</small></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="cat-body">
-  <div class="card featured">
-    <span class="tag">Próximamente</span>
-    <div class="top">
-      <div><div class="name">Tratamiento Cerámico Premium</div><div class="time">4 días aprox.</div></div>
-      <div class="price">desde $440</div>
-    </div>
-    <div class="tiers">
-      <div class="tier"><span>Sedán</span><b>$440</b></div>
-      <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$570</b></div>
-    </div>
-    <ul>
-      <li>Full detallado exterior</li>
-      <li>Detallado Basic interior</li>
-      <li>Corrección completa de pintura</li>
-      <li>Aplicación de cerámico con protección de hasta 5 años</li>
-    </ul>
-    <div class="book-l">Agendá tu cita:</div>
-    <div class="book">
-      <a class="b-wa" href="https://wa.me/50369365876?text=Hola%2C%20quiero%20agendar%20el%20servicio%3A%20Tratamiento%20Cer%C3%A1mico%20Premium">WhatsApp</a>
-      <a class="b-web" href="https://andradedetailingstudio.com/services">Web</a>
-    </div>
-  </div>
   <div class="card">
     <div class="top">
       <div><div class="name">Tratamiento Cerámico Deluxe</div><div class="time">4 días aprox.</div></div>
@@ -172,7 +157,7 @@
       <div class="tier"><span>Pickup doble cabina y Camioneta</span><b>$190</b></div>
     </div>
     <ul>
-      <li>Descontaminación química y mecánica</li>
+      <li>Descontaminación mecánica</li>
       <li>Pulido y abrillantado</li>
       <li>Sellador cerámico CMX Mother's</li>
       <li>Protección de pintura hasta 6 meses</li>
@@ -218,8 +203,12 @@
     <div class="tiers">
       <div class="tier"><span>Sedán y Pickup doble cabina</span><b>$100</b></div>
       <div class="tier"><span>Camioneta</span><b>$125</b></div>
+      <div class="tier"><span>Camioneta de tres filas</span><b>$150</b></div>
     </div>
-    <p class="desc">Limpieza profunda con vapor y extracción de asientos, alfombras, techo, puertas y cinturones.</p>
+    <ul>
+      <li>Limpieza profunda con vapor y extracción de asientos, alfombras, techo, puertas y cinturones</li>
+      <li>Full detallado interior</li>
+    </ul>
     <div class="book-l">Agendá tu cita:</div>
     <div class="book">
       <a class="b-wa" href="https://wa.me/50369365876?text=Hola%2C%20quiero%20agendar%20el%20servicio%3A%20Limpieza%20de%20Tapicer%C3%ADa">WhatsApp</a>
@@ -240,7 +229,6 @@
     <ul>
       <li>Lavado exterior completo</li>
       <li>Detallado de rines y tolvas</li>
-      <li>Descontaminación química en pintura</li>
       <li>Sellador CMX Mother's (protección cerámica)</li>
       <li>Protección de pintura hasta 6 meses</li>
       <li>Abrillantado de llantas</li>
@@ -317,7 +305,6 @@
     <ul>
       <li>Prelavado con desengrasante en motor, cadena, rines y basculante</li>
       <li>Lavado con espuma activa y lavado manual por zonas</li>
-      <li>Descontaminación química de pintura</li>
       <li>Limpieza profunda de cadena con cepillo y desengrasante</li>
       <li>Detallado de rines</li>
       <li>Desmanchado de tubo de escape</li>
@@ -331,7 +318,6 @@
       <li>Pulido de cromados</li>
       <li>Abrillantado de foco, stop y vías</li>
       <li>Abrillantador en motor</li>
-      <li>CMX Mother's Sealant (protección cerámica)</li>
     </ul>
     <div class="book-l">Agendá tu cita:</div>
     <div class="book">
@@ -567,6 +553,10 @@
 
   <div class="info">
     <div class="card">
+      <h3>Precios y Tiempos</h3>
+      <p>Los precios aplican para sedán, pickup y camioneta. Para vehículos más grandes, consultanos.<br>Los tiempos son aproximados y dependen del estado del vehículo.</p>
+    </div>
+    <div class="card">
       <h3>Política de Anticipos</h3>
       <p>Apartá tu cita con un anticipo que se descuenta del total:<br><b>25%</b> en detallados, motor, chasis y faros.<br><b>50%</b> en cerámico, pulido, tapicería y desmanchado de vidrios.<br>Cancelaciones con 12 horas de anticipación vía WhatsApp.</p>
     </div>
@@ -592,5 +582,24 @@
   </footer>
 
 </div>
+<script>
+document.querySelectorAll('details.cat > summary').forEach(function(sum){
+  sum.addEventListener('click',function(e){
+    e.preventDefault();
+    var d=sum.parentElement, opening=!d.open;
+    document.querySelectorAll('details.cat[open]').forEach(function(o){ o.open=false; });
+    if(opening){
+      d.open=true;
+      var top=d.getBoundingClientRect().top+window.pageYOffset-12;
+      window.scrollTo(0,top);
+    }
+  });
+});
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname.endsWith('github.io')) {
+  window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+}
+</script>
 </body>
 </html>
